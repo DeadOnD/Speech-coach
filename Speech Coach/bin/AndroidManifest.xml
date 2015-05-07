@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.thilo.android.speechcoach"
+      android:versionCode="1"
+      android:versionName="1">
+    <!-- The app could run on sdk version 3, but than it would require WRITE_EXTERNAL_STORAGE and 
+        READ_PHONE_STATE permissions (any application targeting 3.0 or earlier is assumed 
+        to need such permissions). -->  
+    <uses-sdk android:minSdkVersion="11"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
+    <uses-feature android:name="android.hardware.microphone" android:required="true"></uses-feature>
+    <!-- Include required permissions for Google Mobile Ads to run-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    
+   <application android:icon="@drawable/icon" android:label="@string/app_name" android:name="TrainingApplication" android:theme="@android:style/Theme.Holo.Light" >
+  		<!--This meta-data tag is required to use Google Play Services.-->
+        <meta-data android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
+  		<activity android:name="com.thilo.android.speechcoach.view.TrainingActivity" android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>        
+ 		<activity android:name="com.thilo.android.speechcoach.view.TrainingPreferenceActivity" android:label="@string/settingsTitle" />
+        <activity android:name="com.thilo.android.speechcoach.view.FileViewerActivity" android:label="@string/app_name" />
+   <!--Include the AdActivity configChanges and theme. -->
+        <activity android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        </application>
+</manifest>
